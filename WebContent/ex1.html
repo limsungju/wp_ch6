@@ -3,20 +3,48 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script>
-function mDown( obj ) {
-  obj.style.backgroundColor="#1ec5e5";
-  obj.innerHTML="버튼을 떼주세요.";
+/**
+	기본 자료형
+	Number
+	String
+	Boolean
+	
+	객체
+	Array
+	Object
+	Function
+	Date
+	Math
+	RegExp
+	
+	유사객체
+	Number
+	String
+	Boolean
+ */
+var n = 10;
+var f = 3.14;
+var b = true;
+var s = 'Hello World';
+var fn = function(a){
+	return a + 10;
 }
-function mUp( obj ) {
-  obj.style.backgroundColor="#D94A38";
-  obj.innerHTML="클릭하세요!";
-}
+var v1 = fn(10);
+var o = {};
+var a = [];
 
+console.log(n + ":" + typeof(n)); // typeof : 변수의 타입을 알려준다.
+console.log(f + ":" + typeof(f));
+console.log(b + ":" + typeof(b));
+console.log(s + ":" + typeof(s));
+console.log(fn + ":" + typeof(fn));
+console.log(v1 + ":" + typeof(v1));
+console.log(f + ":" + typeof(f));
+console.log(o + ":" + typeof(o));
+console.log(a + ":" + typeof(a));
 </script>
 </head>
 <body>
-
-<div onmousedown="mDown(this)" onmouseup="mUp(this)" style="background-color:#D94A38;width:90px;height:20px;padding:40px;">클릭하세요!</div>
-
+	<h1>JavaScript Type</h1>
 </body>
 </html> 
