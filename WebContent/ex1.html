@@ -4,23 +4,22 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script>
 /**
-	기본 자료형
-	Number
-	String
-	Boolean
-	
-	객체
-	Array
-	Object
-	Function
-	Date
-	Math
-	RegExp
-	
-	유사객체
-	Number
-	String
-	Boolean
+	=== 자료형 ===
+   -->객체로 봐야한다. object를 제외하고 확장이 불가능하다.
+   number
+   boolean
+   string
+   function(값으로 보는것이 중요!!!!!, 함수형 프로그래밍에서......)
+   object
+   
+   === 생성자 함수를 통해 생성되는 객체 ===
+   --> (다음 생성자 함수들은 내장되어 있음 -> 내장객체)>
+   object <- Object(리터럴 대체 O)
+   object <- Array(리터럴 대체 O)
+   object <- Function(리터럴 대체 O)
+   object <- Date
+   object <- Math
+    object <- RegExp(리터럴 대체 O)
  */
 var n = 10;
 var f = 3.14;
@@ -32,6 +31,8 @@ var fn = function(a){
 var v1 = fn(10);
 var o = {};
 var a = [];
+var re = /ab+1/;
+
 
 console.log(n + ":" + typeof(n)); // typeof : 변수의 타입을 알려준다.
 console.log(f + ":" + typeof(f));
@@ -42,6 +43,7 @@ console.log(v1 + ":" + typeof(v1));
 console.log(f + ":" + typeof(f));
 console.log(o + ":" + typeof(o));
 console.log(a + ":" + typeof(a));
+console.log(re + ":" + typeof(re));
 </script>
 </head>
 <body>
