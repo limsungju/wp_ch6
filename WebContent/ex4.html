@@ -4,18 +4,19 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript">
-document.write( "<pre>" );
-
-for(var i = 0; i <= 20; i++ ){
-	for( var j = 0; j < 20-i; j++ ) {
-		document.write( "*" );
-	}
-	document.write( "\n" );
-}
-
-document.write( "</pre>" );
+	// 1. var 사용 여부에 Scope이 영향을 받는다.
+	// 2. 특히, local(함수 내부)에서 var를 사용해서 변수를 정의하면 local 범위를 가진다.
+	var i = 5;
+	var f = function() {
+		var i = 20;
+		console.log(i);
+		i = i - 1;
+	};
+	f();
+	console.log(i);
 </script>
 </head>
 <body>
+	<h1>변수 범위(Scope)</h1>
 </body>
 </html>
