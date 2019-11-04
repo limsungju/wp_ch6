@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>String 객체</title>
+<script>
+   //배열처럼 접근이 가능
+   var str = 'Hello World'
+   for (var i = 0; i < str.length; i++) {
+      console.log(str[i]);
+   }
+
+   //문자열 합치기
+   var str1 = "Hello";
+   var str2 = "World";
+   var str3 = str1 + " " + str2;
+   console.log(str3);
+
+   var number = 5;
+   var str4 = number + "5";
+   console.log(str4, ";", typeof (str4));
+
+   var str5 = 'boolean: ' + true;
+   console.log(str5);
+
+   //객체함수
+   var str6 = "string1 string2 string3";
+   console.log(str6.length);
+
+   var index = str6.indexOf('string4');
+   console.log(index); //-1: 없는 경우
+
+   index = str6.indexOf('string3');
+   console.log(index);
+
+   var str7 = str6.substr(index); // start ~ 끝
+   console.log(str7);
+
+   var str8 = str6.substr(index, 3); // index, count
+   console.log(str8);
+
+   var str9 = str6.substring(0, 5); // start, end-1
+   console.log(str9);
+
+   var a = str6.split(' ');
+   console.log(a);
+
+   var str10 = 'abcdefg';
+   var str11 = str10.split(":");
+   console.log(str11);
+
+   //
+   //URL
+   //
+
+   //1. redirection(client side)
+   //setTimeout(function(){
+   //   location.href = "http://localhost:8088/jblog3"
+   //}, 2000); // 2초후에 jblog3로 이동 (jblog3가 서버에 올라와있어야함)
+
+   //2. escape: 사용금지
+   var url = 'http://localhost:8088/jblog?n=이"종"윤';
+   var url2 = escape(url); //deprecated
+   console.log(url2);
+   //console.log('http://localhost:8088/jblog?n=' + escape('이종윤'));
+
+   //3. encodeURI: 전체 URL을 encoding할 때 사용
+   //            URL 주소를 나타내는 앞자리 특수문자는 인코딩 하지 않음
+   var url3 = encodeURI(url);
+   console.log(url3);
+
+   //4. encodeURIComponent: 주소를 나타내는 특수문자도 엔코딩
+   var url4 = encodeURIComponent(url);
+   console.log(url4);
+
+   //5. encodeURIComponent 사용 예 1
+   var url5 = 'http://localhost:8088/jblog3';
+   var queryString = '?' + 'n=' + encodeURIComponent('이"종"윤') + '&e='
+         + encodeURIComponent('leejy3653@naver.com');
+
+   var url5 = url + queryString;
+   console.log(url5);
+
+   //6. encodeURIComponent 사용 예 2
+   var toQueryString = function(o) {
+      qs = [];
+      for (key in o) {
+         qs.push(key + "=" + encodeURIComponent(o[key]));
+      }
+      return "?" + qs.join("&")
+   }
+
+   var url6 = url + toQueryString({
+      n : "이종윤",
+      e : "leejy3653@naver.com"
+   });
+   console.log(url6);
+   
+</script>
+</head>
+<body>
+   <h1>String 객체</h1>
+
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+// concat
+var colors = ['black', 'white', 'yellow'];
+var fruits = ['mango', 'banana', 'apple'];
+
+var test = fruits.concat(colors);
+console.log(test);
+
+// join
+var str = fruits.join('.');
+console.log(str);
+
+// pop(stack)
+var color = colors.pop();
+console.log(color);
+console.log(colors);
+
+// push(stack)
+colors.push('red');
+console.log(colors);
+
+// reverse
+console.log(fruits);
+fruits.reverse();
+console.log(fruits);
+
+// shift
+var numbers = [4000, 5000, 2000, 8000, 1000];
+console.log(numbers);
+numbers.shift();
+console.log(numbers);
+
+// slice
+var numbers2 = numbers.slice(1, 3);
+console.log(numbers);
+console.log(numbers2);
+
+// splice
+console.log(fruits);
+var fruits2 = fruits.splice(0/*index*/, 2/*count*/);
+console.log(fruits);
+console.log(fruits2);
+
+// prototype을 이용한 배열 확장
+// a[9] = "hello";
+// a.insert(9, 'hello')
+
+
+// remove, insert
+Array.prototype.insert = function(index, value) {
+	if(value instanceof Array) {
+
+//		var _this = this;
+//		value.forEach(function(element) {
+//			_this.splice(index++, 0, element);
+//		});
+		
+		value.forEach(function(element) {
+			this.splice(index++, 0, element);
+		}.bind(this));
+	} else {
+		this.splice(index, 0, value);
+	}
+}
+
+Array.prototype.remove = function(index) {
+	this.splice(index, 1);
+}
+
+var a = [1, 2, 4];
+a.insert(2, 3);
+console.log(a);
+
+a.remove(3);
+console.log(a);
+
+console.log(a);
+a.insert(2, ['a', 'b', 'c']);
+console.log(a);
+
+
+</script>
+</head>
+<body>
+	<h1>배열함수</h1>
+</body>
+</html>
