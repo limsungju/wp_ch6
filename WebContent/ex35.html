@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>이벤트 버블링(Event Propagation, Event Bubbling)</title>
+<script>
+   /*
+   이벤트 버블링: 특정 이벤트가 발생했을 때, 해당 이벤트가 상위 부모 Element들로 전달되어 가는 것.
+   IE: outer-div --> inner-dv --> header --> text
+   다른브라우저: 거꾸로
+    */
+</script>
+<script>
+   window.addEventListener('load', function() {
+      document.getElementById("outer-div").addEventListener('click',
+            function(e/*event*/) {
+               console.log("outer-div");
+            });
+      document.getElementById("inner-div").addEventListener('click',
+            function(e) {
+               //cross browser
+               //e == null => IE8 이하(window.event)
+               var event = e || window.event;
+
+               //이벤트 버블링 막기
+               event.cancelBubble = true;//IE8 이하
+               event.stopPropagation && event.stopPropagation();//다른버전
+
+               console.log("inner-div");
+            });
+      document.getElementById("header").addEventListener('click',
+            function(e) {
+               console.log("header");
+            });
+      document.getElementById("text").addEventListener('click', function(e) {
+         console.log("text");
+      });
+   });
+</script>
+</head>
+<body>
+   <h1>이벤트 버블링(Event Propagation, Event Bubbling)</h1>
+   <div id="outer-div">
+      <div id="inner-div">
+         <h2 id="header">
+            <span id="text">Text!!!</span>
+         </h2>
+      </div>
+   </div>
+</body>
+</html>
